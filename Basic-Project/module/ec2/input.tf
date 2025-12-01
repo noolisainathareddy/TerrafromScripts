@@ -4,5 +4,6 @@ variable "ami_id" {
 }
 
 variable "instance_type" {
-    description = "t3.micro"
+    description = "This is the type of instance"
+    default = "t3.micro"
 }
