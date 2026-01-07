@@ -1,5 +1,3 @@
-
-
 resource "aws_launch_template" "nkit_dev_instance" {
   name          = "nkit-dev-private"
   description   = "Creating private ec2 instances"
@@ -18,4 +16,15 @@ resource "aws_instance" "bastion-host" {
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.nkit-dev-public-1a.id
   vpc_security_group_ids      = [aws_security_group.nkit-dev-public-sg.id]
+}
+
+resource "aws_autoscaling_group" "nkit-dev-auto-scale-grp" {
+  name = "nkit-dev-auto-scale-grp"
+  launch_template {
+    id = aws_launch_template.nkit_dev_instance.id
+  }
+  max_size            = 4
+  min_size            = 1
+  desired_capacity    = 2
+  vpc_zone_identifier = [aws_subnet.nkit-dev-private-1a.id, aws_subnet.nkit-dev-private-1b.id]
 }
