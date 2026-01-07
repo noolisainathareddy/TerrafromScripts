@@ -7,8 +7,9 @@ resource "aws_vpc" "nkit-dev-vpc" {
 }
 
 resource "aws_subnet" "nkit-dev-public-1a" {
-  vpc_id     = aws_vpc.nkit-dev-vpc.id
-  cidr_block = var.nkit-dev-public-1a-cidr
+  availability_zone = "us-east-1a"
+  vpc_id            = aws_vpc.nkit-dev-vpc.id
+  cidr_block        = var.nkit-dev-public-1a-cidr
   tags = {
     Name = "nkit-dev-public-1a"
   }
@@ -16,8 +17,9 @@ resource "aws_subnet" "nkit-dev-public-1a" {
 }
 
 resource "aws_subnet" "nkit-dev-public-1b" {
-  vpc_id     = aws_vpc.nkit-dev-vpc.id
-  cidr_block = var.nkit-dev-public-1b-cidr
+  availability_zone = "us-east-1b"
+  vpc_id            = aws_vpc.nkit-dev-vpc.id
+  cidr_block        = var.nkit-dev-public-1b-cidr
   tags = {
     Name = "nkit-dev-public-1b"
   }
@@ -25,8 +27,9 @@ resource "aws_subnet" "nkit-dev-public-1b" {
 }
 
 resource "aws_subnet" "nkit-dev-private-1a" {
-  vpc_id     = aws_vpc.nkit-dev-vpc.id
-  cidr_block = var.nkit-dev-private-1a-cidr
+  availability_zone = "us-east-1a"
+  vpc_id            = aws_vpc.nkit-dev-vpc.id
+  cidr_block        = var.nkit-dev-private-1a-cidr
   tags = {
     Name = "nkit-dev-private-1a"
   }
@@ -34,8 +37,9 @@ resource "aws_subnet" "nkit-dev-private-1a" {
 }
 
 resource "aws_subnet" "nkit-dev-private-1b" {
-  vpc_id     = aws_vpc.nkit-dev-vpc.id
-  cidr_block = var.nkit-dev-private-1b-cidr
+  availability_zone = "us-east-1b"
+  vpc_id            = aws_vpc.nkit-dev-vpc.id
+  cidr_block        = var.nkit-dev-private-1b-cidr
   tags = {
     Name = "nkit-dev-private-1b"
   }
@@ -132,13 +136,15 @@ resource "aws_security_group" "nkit-dev-private-sg" {
   depends_on = [aws_vpc.nkit-dev-vpc]
 }
 
-resource "aws_vpc_security_group_ingress_rule" "nkit-dev-public-egress-rule" {
+resource "aws_vpc_security_group_ingress_rule" "nkit-dev-public-ingress-rule" {
   security_group_id = aws_security_group.nkit-dev-public-sg.id
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "tcp"
   from_port         = 22
   to_port           = 22
 }
+
+
 resource "aws_vpc_security_group_ingress_rule" "nkit-dev-private-ingress-rule-http" {
   security_group_id = aws_security_group.nkit-dev-private-sg.id
   cidr_ipv4         = "0.0.0.0/0"
