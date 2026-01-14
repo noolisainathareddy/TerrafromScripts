@@ -144,6 +144,12 @@ resource "aws_vpc_security_group_ingress_rule" "nkit-dev-public-ingress-rule" {
   to_port           = 22
 }
 
+resource "aws_vpc_security_group_egress_rule" "nkit-dev-public-egress-rule" {
+  security_group_id = aws_security_group.nkit-dev-public-sg.id
+    ip_protocol = "-1"
+    cidr_ipv4 = "0.0.0.0/0"
+}
+
 
 resource "aws_vpc_security_group_ingress_rule" "nkit-dev-private-ingress-rule-http" {
   security_group_id = aws_security_group.nkit-dev-private-sg.id

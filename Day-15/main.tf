@@ -1,9 +1,10 @@
 resource "aws_launch_template" "nkit_dev_instance" {
-  name          = "nkit-dev-private"
-  description   = "Creating private ec2 instances"
-  image_id      = var.ami_id
-  instance_type = var.instance_type
-  key_name      = "nkit-dev-sai1996"
+  name                   = "nkit-dev-private"
+  description            = "Creating private ec2 instances"
+  image_id               = var.ami_id
+  instance_type          = var.instance_type
+  key_name               = "nkit-dev-sai1996"
+  vpc_security_group_ids = [aws_security_group.nkit-dev-private-sg.id]
 }
 
 resource "aws_instance" "bastion-host" {
