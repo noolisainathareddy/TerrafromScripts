@@ -5,6 +5,7 @@ resource "aws_launch_template" "nkit_dev_instance" {
   instance_type          = var.instance_type
   key_name               = "nkit-dev-sai1996"
   vpc_security_group_ids = [aws_security_group.nkit-dev-private-sg.id]
+  user_data              = filebase64("script.sh")
 }
 
 resource "aws_instance" "bastion-host" {
@@ -24,6 +25,7 @@ resource "aws_autoscaling_group" "nkit-dev-auto-scale-grp" {
   launch_template {
     id = aws_launch_template.nkit_dev_instance.id
   }
+  target_group_arns   = [aws_lb_target_group.nginx-target-group.arn]
   max_size            = 4
   min_size            = 1
   desired_capacity    = 2
