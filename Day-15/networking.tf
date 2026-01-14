@@ -143,11 +143,18 @@ resource "aws_vpc_security_group_ingress_rule" "nkit-dev-public-ingress-rule" {
   from_port         = 22
   to_port           = 22
 }
+resource "aws_vpc_security_group_ingress_rule" "nkit-dev-public-ingress-http-rule" {
+  security_group_id = aws_security_group.nkit-dev-public-sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  ip_protocol       = "tcp"
+  from_port         = 80
+  to_port           = 80
+}
 
 resource "aws_vpc_security_group_egress_rule" "nkit-dev-public-egress-rule" {
   security_group_id = aws_security_group.nkit-dev-public-sg.id
-    ip_protocol = "-1"
-    cidr_ipv4 = "0.0.0.0/0"
+  ip_protocol       = "-1"
+  cidr_ipv4         = "0.0.0.0/0"
 }
 
 
@@ -157,6 +164,13 @@ resource "aws_vpc_security_group_ingress_rule" "nkit-dev-private-ingress-rule-ht
   ip_protocol       = "tcp"
   from_port         = 80
   to_port           = 80
+}
+
+resource "aws_vpc_security_group_egress_rule" "nkit-dev-private-egree-rule" {
+  security_group_id = aws_security_group.nkit-dev-private-sg.id
+  ip_protocol       = "-1"
+  cidr_ipv4         = "0.0.0.0/0"
+
 }
 
 
