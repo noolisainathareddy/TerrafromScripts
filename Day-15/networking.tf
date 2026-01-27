@@ -62,7 +62,7 @@ resource "aws_eip" "elastic_ip" {
 
 resource "aws_nat_gateway" "nkit-dev-nat" {
   subnet_id         = aws_subnet.nkit-dev-public-1a.id
-  availability_mode = "zonal"
+  # availability_mode = "zonal"
   allocation_id     = aws_eip.elastic_ip.id
   tags = {
     Name = "nkit-dev-nat"
