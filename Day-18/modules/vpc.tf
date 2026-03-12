@@ -140,10 +140,42 @@ resource "aws_route_table_association" "associate_private_rt_subnet_1b" {
 }
 
 
-resource "aws_security_group'" "public_sg" {
-  
+resource "aws_security_group" "public_sg" {
+  vpc_id = aws_vpc.main_vpc.id
+  description = "Public_SG"
+  tags = merge(var.tags,{
+    "Name" = "public_sg"
+ })
 }
 
-resource "aws_security_group" "name" {
-  
+resource "aws_security_group" "private_sg" {
+  vpc_id = aws_vpc.main_vpc.id
+  description = "Private_SG"
+  tags = merge(var.tags,{
+    "Name" = "private_sg"
+ })
+}
+
+resource "aws_vpc_security_group_egress_rule" "egress_public_sg_rule" {
+  security_group_id = aws_security_group.public_sg.id
+  cidr_ipv4 = "0.0.0.0/0"
+  ip_protocol = "-1"
+}
+
+resource "aws_vpc_security_group_ingress_rule" "ingress_public_sg_rule" {
+  security_group_id = aws_security_group.public_sg.id
+  cidr_ipv4 = "0.0.0.0/0"
+  ip_protocol = "-1"
+}
+
+resource "aws_vpc_security_group_egress_rule" "egress_private_sg_rule" {
+  security_group_id = aws_security_group.private_sg.id
+  cidr_ipv4 = "0.0.0.0/0"
+  ip_protocol = "-1"
+}
+
+resource "aws_vpc_security_group_ingress_rule" "ingress_private_sg_rule" {
+  security_group_id = aws_security_group.private_sg.id
+  cidr_ipv4 = "0.0.0.0/0"
+  ip_protocol = "-1"
 }
