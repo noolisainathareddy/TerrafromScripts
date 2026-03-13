@@ -1,5 +1,5 @@
 #!/bin/bash
-dnf install nginx -y
-systemctl enable nginx
-systemctl start nginx
-echo "<h1>Hello from Nginx on EC2</h1>" > /usr/share/nginx/html/index.html
+sudo dnf install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+sudo echo "<h1>Hello from Nginx on EC2</h1>" > /usr/share/nginx/html/index.html
