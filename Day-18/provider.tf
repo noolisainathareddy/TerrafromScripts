@@ -12,6 +12,7 @@ terraform {
     key          = "day18/terraform.tfstate"
     encrypt      = true
     region       = "us-east-1"
+    profile      = "sai1996"
   }
 }
 
