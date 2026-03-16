@@ -7,4 +7,5 @@ resource "aws_autoscaling_group" "nkit_auto_scaling_group" {
    launch_template {
      id = aws_launch_template.nkit_ec2_launch_template.id
    }
+   target_group_arns = [aws_lb_target_group.nkit_dev_target_group.arn]
 }
