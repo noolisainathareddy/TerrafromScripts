@@ -25,3 +25,19 @@ variable "default_subnet_cidr" {
 variable "sg_ip_protocol" {
   type = string
 }
+
+variable "aws_launch_template_name" {
+  type = string
+}
+
+variable "aws_launch_template_ami" {
+  type = string
+}
+
+variable "launch_template_instance_type" {
+  type = string
+}
+
+variable "node_ssh_key_name" {
+  type = string
+}
