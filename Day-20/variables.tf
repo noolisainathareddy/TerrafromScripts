@@ -21,3 +21,7 @@ variable "subnet_cidr" {
 variable "default_subnet_cidr" {
   type = string
 }
+
+variable "sg_ip_protocol" {
+  type = string
+}
