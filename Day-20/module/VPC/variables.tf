@@ -22,3 +22,6 @@ variable "subnet_cidr" {
   type = list(string)
 }
 
+variable "default_subnet_cidr" {
+  type = string
+}

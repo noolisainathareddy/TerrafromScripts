@@ -7,7 +7,7 @@ variable "tags" {
 }
 
 variable "vpc_instance_type" {
-    type = string
+  type = string
 }
 
 variable "env" {
@@ -18,6 +18,6 @@ variable "subnet_cidr" {
   type = list(string)
 }
 
-variable "azs" {
-  type = list(string)
+variable "default_subnet_cidr" {
+  type = string
 }
