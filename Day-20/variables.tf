@@ -53,3 +53,23 @@ variable "eks_authentication_mode" {
 variable "eks_cluster_role_name" {
   type = string
 }
+
+variable "eks_node_role_name" {
+  type = string
+}
+
+variable "role_Version" {
+  type = string
+}
+
+variable "cluster_role_arn" {
+  type = string
+}
+
+variable "node_role_Arn" {
+  type = string
+}
+
+variable "list_of_subnets" {
+  type = list(string)
+}
