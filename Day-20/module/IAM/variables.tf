@@ -10,6 +10,6 @@ variable "env" {
   type = string
 }
 
-variable "role_Version" {
+variable "eks_iam_role_Version" {
   type = string
 }

@@ -58,7 +58,7 @@ variable "eks_node_role_name" {
   type = string
 }
 
-variable "role_Version" {
+variable "eks_iam_role_Version" {
   type = string
 }
 
