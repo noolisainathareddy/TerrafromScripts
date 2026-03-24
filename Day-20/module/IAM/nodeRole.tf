@@ -1,8 +1,8 @@
 resource "aws_iam_role" "nkit_eks_node_role" {
   name = "${var.eks_node_role_name}_${var.env}"
-  assume_role_policy = jsondecode(
+  assume_role_policy = jsonencode(
     {
-        Version = "${var.eks_iam_role_Version}"
+        Version = var.eks_iam_role_Version
         Statement = [
             {
                 Sid = "AllowNodeToCreatedandDeleteComputeResources"
