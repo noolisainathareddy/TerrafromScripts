@@ -41,3 +41,15 @@ variable "launch_template_instance_type" {
 variable "node_ssh_key_name" {
   type = string
 }
+
+variable "eks_cluster_name" {
+  type = string
+}
+
+variable "eks_authentication_mode" {
+  type = string
+}
+
+variable "eks_cluster_role_name" {
+  type = string
+}

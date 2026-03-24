@@ -19,3 +19,11 @@ module "node_launch_template" {
   launch_template_instance_type = var.launch_template_instance_type
   node_ssh_key_name             = var.node_ssh_key_name
 }
+
+module "nkit_eks_cluster" {
+    source = "./module/EKS"
+    eks_cluster_name = var.eks_cluster_name
+    env = var.env
+    eks_authentication_mode = var.eks_authentication_mode
+
+}
