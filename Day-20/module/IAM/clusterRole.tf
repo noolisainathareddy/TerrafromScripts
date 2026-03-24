@@ -1,8 +1,8 @@
 resource "aws_iam_role" "nkit_eks_cluster_role" {
   name = "${var.eks_cluster_role_name}_${var.env}"
   assume_role_policy = jsonencode({
-    Version =  "${var.eks_iam_role_Version}"
-    Satement = [
+    Version =  var.eks_iam_role_Version
+    Statement = [
         {
             Sid = "AllowClusterToCreatedandDeleteEKSResources",
             Effect =  "Allow",

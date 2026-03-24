@@ -62,14 +62,14 @@ variable "eks_iam_role_Version" {
   type = string
 }
 
-variable "cluster_role_arn" {
-  type = string
-}
+# variable "cluster_role_arn" {
+#   type = string
+# }
 
-variable "node_role_Arn" {
-  type = string
-}
+# variable "node_role_Arn" {
+#   type = string
+# }
 
-variable "list_of_subnets" {
-  type = list(string)
-}
+# variable "list_of_subnets" {
+#   type = list(string)
+# }
