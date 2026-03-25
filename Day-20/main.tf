@@ -36,9 +36,17 @@ module "nkit_eks_cluster" {
   env                     = var.env
   eks_authentication_mode = var.eks_authentication_mode
   list_of_subnets         = module.aws_vpc.list_of_subnets
-  cluster_role_arn        = module.create_iam_role.eks_cluster_role_Arn
-  node_role_Arn           = module.create_iam_role.eks_node_role_Arn
+  cluster_role_arn        = module.create_iam_role.eks_cluster_role_arn
+  node_role_arn           = module.create_iam_role.eks_node_role_arn
   tags                    = var.tags
   depends_on = [ module.create_iam_role, module.aws_vpc, module.node_launch_template ]
+  eks_node_group_name = var.eks_node_group_name
+  eks_node_desired_size = ""
+  eks_node_max_size = ""
+  eks_node_min_size = ""
+  eks_node_launch_template_id = module.node_launch_template.eks_node_launch_template_id
+  eks_node_launch_template_version = module.node_launch_template.eks_node_launch_template_version
 }
+
+
 
