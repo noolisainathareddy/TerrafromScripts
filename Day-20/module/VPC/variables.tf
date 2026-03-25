@@ -29,3 +29,19 @@ variable "default_subnet_cidr" {
 variable "sg_ip_protocol" {
   type = string
 }
+
+variable "eks_node_desired_size" {
+  type = number
+}
+
+variable "eks_node_max_size" {
+  type = number
+}
+
+variable "eks_node_min_size" {
+  type = number
+}
+
+variable "eks_node_launch_template" {
+  type = string
+}
