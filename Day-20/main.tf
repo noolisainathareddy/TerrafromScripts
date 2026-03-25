@@ -34,6 +34,7 @@ module "nkit_eks_cluster" {
   source                           = "./module/EKS"
   eks_cluster_name                 = var.eks_cluster_name
   env                              = var.env
+  eks_auto_mode = var.eks_auto_mode
   eks_authentication_mode          = var.eks_authentication_mode
   list_of_subnets                  = module.aws_vpc.list_of_subnets
   cluster_role_arn                 = module.create_iam_role.eks_cluster_role_arn
@@ -46,6 +47,7 @@ module "nkit_eks_cluster" {
   eks_node_min_size                = var.eks_node_min_size
   eks_node_launch_template_id      = module.node_launch_template.eks_node_launch_template_id
   eks_node_launch_template_version = module.node_launch_template.eks_node_launch_template_version
+
 }
 
 

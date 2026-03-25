@@ -49,3 +49,7 @@ variable "eks_node_launch_template_id" {
 variable "eks_node_launch_template_version" {
   type = string
 }
+
+variable "eks_auto_mode" {
+  type = bool
+}

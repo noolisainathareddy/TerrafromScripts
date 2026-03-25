@@ -77,3 +77,7 @@ variable "eks_node_max_size" {
 variable "eks_node_min_size" {
   type = number
 }
+
+variable "eks_auto_mode" {
+  type = bool
+}
