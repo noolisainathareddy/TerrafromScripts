@@ -14,7 +14,7 @@ variable "cluster_role_arn" {
   type = string
 }
 
-variable "node_role_Arn" {
+variable "node_role_arn" {
   type = string
 }
 
@@ -24,4 +24,20 @@ variable "list_of_subnets" {
 
 variable "tags" {
   type = map(string)
+}
+
+variable "eks_node_group_name" {
+  type = string
+}
+
+variable "eks_node_desired_size" {
+  type = number
+}
+
+variable "eks_node_max_size" {
+  type = number
+}
+
+variable "eks_node_min_size" {
+  type = number
 }

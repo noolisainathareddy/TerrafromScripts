@@ -62,6 +62,10 @@ variable "eks_iam_role_Version" {
   type = string
 }
 
+variable "eks_node_group_name" {
+  type = string
+}
+
 # variable "cluster_role_arn" {
 #   type = string
 # }
