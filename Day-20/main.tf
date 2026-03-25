@@ -18,7 +18,7 @@ module "node_launch_template" {
   aws_launch_template_ami       = var.aws_launch_template_ami
   launch_template_instance_type = var.launch_template_instance_type
   node_ssh_key_name             = var.node_ssh_key_name
-  depends_on = [ module.aws_vpc ]
+  depends_on                    = [module.aws_vpc]
 }
 
 module "create_iam_role" {
@@ -27,24 +27,24 @@ module "create_iam_role" {
   eks_node_role_name    = var.eks_node_role_name
   env                   = var.env
   eks_iam_role_Version  = var.eks_iam_role_Version
-  depends_on = [ module.aws_vpc, module.node_launch_template ]
+  depends_on            = [module.aws_vpc, module.node_launch_template]
 }
 
 module "nkit_eks_cluster" {
-  source                  = "./module/EKS"
-  eks_cluster_name        = var.eks_cluster_name
-  env                     = var.env
-  eks_authentication_mode = var.eks_authentication_mode
-  list_of_subnets         = module.aws_vpc.list_of_subnets
-  cluster_role_arn        = module.create_iam_role.eks_cluster_role_arn
-  node_role_arn           = module.create_iam_role.eks_node_role_arn
-  tags                    = var.tags
-  depends_on = [ module.create_iam_role, module.aws_vpc, module.node_launch_template ]
-  eks_node_group_name = var.eks_node_group_name
-  eks_node_desired_size = ""
-  eks_node_max_size = ""
-  eks_node_min_size = ""
-  eks_node_launch_template_id = module.node_launch_template.eks_node_launch_template_id
+  source                           = "./module/EKS"
+  eks_cluster_name                 = var.eks_cluster_name
+  env                              = var.env
+  eks_authentication_mode          = var.eks_authentication_mode
+  list_of_subnets                  = module.aws_vpc.list_of_subnets
+  cluster_role_arn                 = module.create_iam_role.eks_cluster_role_arn
+  node_role_arn                    = module.create_iam_role.eks_node_role_arn
+  tags                             = var.tags
+  depends_on                       = [module.create_iam_role, module.aws_vpc, module.node_launch_template]
+  eks_node_group_name              = var.eks_node_group_name
+  eks_node_desired_size            = var.eks_node_desired_size
+  eks_node_max_size                = var.eks_node_max_size
+  eks_node_min_size                = var.eks_node_min_size
+  eks_node_launch_template_id      = module.node_launch_template.eks_node_launch_template_id
   eks_node_launch_template_version = module.node_launch_template.eks_node_launch_template_version
 }
 

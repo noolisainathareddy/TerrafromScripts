@@ -66,14 +66,14 @@ variable "eks_node_group_name" {
   type = string
 }
 
-# variable "cluster_role_arn" {
-#   type = string
-# }
+variable "eks_node_desired_size" {
+  type = number
+}
 
-# variable "node_role_Arn" {
-#   type = string
-# }
+variable "eks_node_max_size" {
+  type = number
+}
 
-# variable "list_of_subnets" {
-#   type = list(string)
-# }
+variable "eks_node_min_size" {
+  type = number
+}
