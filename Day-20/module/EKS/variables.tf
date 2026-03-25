@@ -41,3 +41,11 @@ variable "eks_node_max_size" {
 variable "eks_node_min_size" {
   type = number
 }
+
+variable "eks_node_launch_template_id" {
+  type = string
+}
+
+variable "eks_node_launch_template_version" {
+  type = string
+}
