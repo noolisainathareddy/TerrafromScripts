@@ -81,3 +81,7 @@ variable "eks_node_min_size" {
 variable "eks_auto_mode" {
   type = bool
 }
+
+variable "aws_eks_version" {
+  type = string
+}
