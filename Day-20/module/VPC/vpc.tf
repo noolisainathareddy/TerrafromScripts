@@ -19,6 +19,7 @@ resource "aws_internet_gateway" "nkit_igw" {
 
 resource "aws_subnet" "nkit_public_subnet" {
   count = length(var.subnet_cidr)
+  map_public_ip_on_launch = true
   vpc_id = aws_vpc.nkit_vpc.id
   cidr_block = var.subnet_cidr[count.index]
   availability_zone = var.azs[count.index]

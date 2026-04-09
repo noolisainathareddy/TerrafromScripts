@@ -53,3 +53,7 @@ variable "eks_node_launch_template_version" {
 variable "eks_auto_mode" {
   type = bool
 }
+
+variable "aws_eks_version" {
+  type = string
+}

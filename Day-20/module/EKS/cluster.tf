@@ -18,7 +18,7 @@ resource "aws_eks_cluster" "nkit_eks_cluster" {
     }
   }
   role_arn = var.cluster_role_arn
-  version = "1.34"
+  version = var.aws_eks_version
   vpc_config {
     subnet_ids = var.list_of_subnets   
   }
