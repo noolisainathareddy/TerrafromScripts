@@ -1,6 +1,6 @@
 Basic-Project/.terraform/
 Basic-Project/.terraform.lock.hcl
 **/.terraform/
-**/.tfstate
-**/.tfstate.backup
+*.tfstate
+*.tfstate.backup
 **/.terraform.lock.hcl
